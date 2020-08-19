@@ -17,6 +17,7 @@ def predict(model, input_df):
  ###   percentrisk = print("%.2f%%" % (predictions * 100.0))
     return predictions
 
+st.set_option('deprecation.showfileUploaderEncoding', False)
 
 
 
@@ -37,7 +38,7 @@ def run():
         Gender = st.radio('Gender', ['M', 'F'])
         Ethnicity = st.radio('Ethnicity', ['White', 'BAME'])        
         BMI = st.number_input('BMI (kg/m²)', min_value=10.00, max_value=50.00)
-        HTN = st.radio('Hypertension', [True, False])        
+        HTN = st.radio('Has Hypertension?', [True, False])        
         PreopOGTT = st.number_input('Pre-op Glucose (mmol/L)', min_value=1.0, max_value=50.0)
         PreopHbac = st.number_input('Pre-op Hba1c (mmol/mol)', min_value=1.0, max_value=500.0)
         PreOpAlbumin = st.number_input('Pre-op Albumin (g/L)', min_value=1.0, max_value=100.0)
@@ -64,11 +65,13 @@ def run():
     if add_selectbox == 'Multiple Patients':
 
         file_upload = st.file_uploader("Upload csv file for predictions", type=["csv"])
+        st.write('Click here for a template to upload')
 
         if file_upload is not None:
             data = pd.read_csv(file_upload)
-            output = predict_model(estimator=model,data=data)
+            output = predict_model(estimator=model,data=data, probability_threshold=0.212)
             st.write(output)
+            st.write('The score column is the predicted probability')
 
 if __name__ == '__main__':
     run()
