@@ -27,21 +27,36 @@ def run():
     add_selectbox = st.sidebar.selectbox(
     "Who are you predicting for?",
     ("An Individual", "Multiple Patients"))
+    st.sidebar.title("About")
 
     st.sidebar.info('This app has been created to predict the risk of developing diabetes mellitus in one year after having a partial pancreatectomy. A partial pancreatectomy is a surgical procedure to remove part of your pancreas, a leaf shaped organ in your abdomen which is important in blood sugar control.')
+    
+    st.sidebar.title("Disclaimer")
+    
+    st.sidebar.info("The model presented here has been developed to be as accurate as possible at the time of release. However, there is no guarantee or warranty of accuracy."
+                    " The authors and developer are in no way liable for the outcomes resulting from use of this model."
+                    " This model does not replace clinical judgement by a medical professional and the results of any predictions should be discussed with your clinician."
+                    " No data entered into this application is stored.")
+    
+    st.sidebar.title("Copyright and License")
+    st.sidebar.info("Copyright © A Borakati 2020 \n"
+                    "Licensed under the GNU General Public License Version 3 \n"
+                    "\n Source Code available [here](https://github.com/ABorakati/PancreatectomyPredictor)\n"
+                    ""
+                    "Contact: [a.borakati@doctors.org.uk](a.borakati@doctors.org.uk)")
     
 
     st.title("Pancreatectomy Diabetes Predictor")
 
     if add_selectbox == 'An Individual':
-        Age = st.number_input('Age', min_value=18, max_value=150, value=25)
+        Age = st.slider('Age', min_value=18, max_value=100, value=50)
         Gender = st.radio('Gender', ['M', 'F'])
         Ethnicity = st.radio('Ethnicity', ['White', 'BAME'])        
-        BMI = st.number_input('BMI (kg/m²)', min_value=10.00, max_value=50.00)
+        BMI = st.number_input('BMI (kg/m²)', min_value=10.00, max_value=50.00, value=20.0)
         HTN = st.radio('Has Hypertension?', [True, False])        
-        PreopOGTT = st.number_input('Pre-op Glucose (mmol/L)', min_value=1.0, max_value=50.0)
-        PreopHbac = st.number_input('Pre-op Hba1c (mmol/mol)', min_value=1.0, max_value=500.0)
-        PreOpAlbumin = st.number_input('Pre-op Albumin (g/L)', min_value=1.0, max_value=100.0)
+        PreopOGTT = st.number_input('Pre-op Glucose (mmol/L)', min_value=1.0, max_value=50.0, value=7.0)
+        PreopHbac = st.number_input('Pre-op Hba1c (mmol/mol)', min_value=1.0, max_value=500.0, value=28.0)
+        PreOpAlbumin = st.number_input('Pre-op Albumin (g/L)', min_value=1.0, max_value=100.0, value=40.0)
         Procedure = st.radio('Procedure', ['Proximal', 'Distal/Central'])        
         DuodenalResection = st.number_input('Duodenal Resection Length (mm)', min_value=0.0, max_value=600.0)
         PancreasVolume = st.number_input('Pancreatic Resection Volume cm³', min_value=0.00000, max_value=1000000000.00000)
