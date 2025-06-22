@@ -11,3 +11,9 @@ See [pancpred.azurewebsites.net](pancpred.azurewebsites.net) for live app.
 Details of predictive model to be published shortly. 
 
 Contact [a.borakati@doctors.org.uk]
+
+## See below for a video demonstration of the app:
+
+
+https://github.com/user-attachments/assets/e21956eb-e048-4a6a-83f8-3ce71abc9452
+
