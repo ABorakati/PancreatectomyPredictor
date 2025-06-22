@@ -1,3 +1,5 @@
+
+DOI: 10.5281/zenodo.15715681
 # Pancreatectomy Diabetes Predictor
 
 Source code for prediction Web App.
