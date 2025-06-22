@@ -1,5 +1,5 @@
 
-[![DOI](https://zenodo.org/badge/{287049672}.svg)](https://zenodo.org/badge/latestdoi/{287049672})
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15715681.svg)](https://doi.org/10.5281/zenodo.15715681)
 # Pancreatectomy Diabetes Predictor
 
 Source code for prediction Web App.
